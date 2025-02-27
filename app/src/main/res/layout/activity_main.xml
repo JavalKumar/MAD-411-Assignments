@@ -7,30 +7,50 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_your_name"
-        android:textSize="23dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
-
-    <EditText
-        android:layout_width="362dp"
-        android:layout_height="45dp"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="308dp"
-        />
-
     <Button
+        android:id="@+id/calc_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="454dp"
+        android:onClick="onClick"
         android:text="Show name"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="367dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText"
+        tools:ignore="MissingConstraints,OnClick" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="402dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="430dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:hint="Enter your name"
+        app:layout_constraintBottom_toTopOf="@+id/calc_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="353dp"
+        android:layout_marginEnd="285dp"
+        android:layout_marginBottom="25dp"
+        android:text="Enter your name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

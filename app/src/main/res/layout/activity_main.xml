@@ -133,6 +133,8 @@
             android:id="@+id/expenseList"
             android:layout_width="396dp"
             android:layout_height="490dp"
+            android:clipChildren="true"
+            android:clipToPadding="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button" />
 

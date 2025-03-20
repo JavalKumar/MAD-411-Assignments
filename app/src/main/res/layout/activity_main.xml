@@ -7,65 +7,136 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/calc_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginBottom="454dp"
-        android:onClick="onClick"
-        android:text="Show name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText"
-        tools:ignore="MissingConstraints,OnClick" />
+        <!--    <Button-->
+        <!--        android:id="@+id/calc_button"-->
+        <!--        android:layout_width="166dp"-->
+        <!--        android:layout_height="54dp"-->
+        <!--        android:layout_marginStart="16dp"-->
+        <!--        android:layout_marginTop="143dp"-->
+        <!--        android:layout_marginEnd="16dp"-->
+        <!--        android:layout_marginBottom="800dp"-->
+        <!--        android:onClick="onClick"-->
+        <!--        android:text="Show name"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toEndOf="@+id/editTextText"-->
+        <!--        app:layout_constraintTop_toTopOf="parent"-->
+        <!--        tools:ignore="MissingConstraints,OnClick" />-->
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="402dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="430dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="19dp"
-        android:ems="10"
-        android:hint="Enter your name"
-        app:layout_constraintBottom_toTopOf="@+id/calc_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        <!--    <EditText-->
+        <!--        android:id="@+id/editTextText"-->
+        <!--        android:layout_width="234dp"-->
+        <!--        android:layout_height="57dp"-->
+        <!--        android:layout_marginStart="16dp"-->
+        <!--        android:layout_marginTop="13dp"-->
+        <!--        android:layout_marginEnd="16dp"-->
+        <!--        android:ems="10"-->
+        <!--        android:hint="Enter your name"-->
+        <!--        app:layout_constraintEnd_toStartOf="@+id/calc_button"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/textView3"-->
+        <!--        tools:ignore="MissingConstraints" />-->
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="353dp"
-        android:layout_marginEnd="285dp"
-        android:layout_marginBottom="25dp"
-        android:text="Enter your name"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!--    <TextView-->
+        <!--        android:id="@+id/textView3"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginStart="16dp"-->
+        <!--        android:layout_marginTop="100dp"-->
+        <!--        android:layout_marginEnd="285dp"-->
+        <!--        android:layout_marginBottom="13dp"-->
+        <!--        android:text="Enter your name"-->
+        <!--        android:textSize="20sp"-->
+        <!--        android:textStyle="bold"-->
+        <!--        app:layout_constraintBottom_toTopOf="@+id/editTextText"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="257dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="344dp"
-        android:text=""
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calc_button" />
+        <!--    <TextView-->
+        <!--        android:id="@+id/textView4"-->
+        <!--        android:layout_width="206dp"-->
+        <!--        android:layout_height="44dp"-->
+        <!--        android:layout_marginStart="16dp"-->
+        <!--        android:layout_marginTop="23dp"-->
+        <!--        android:layout_marginEnd="226dp"-->
+        <!--        android:text=""-->
+        <!--        android:textSize="20sp"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/editTextText" />-->
+
+
+        <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--        android:layout_width="440dp"-->
+        <!--        android:layout_height="993dp"-->
+        <!--        tools:ignore="MissingConstraints"-->
+        <!--        tools:layout_editor_absoluteX="4dp"-->
+        <!--        tools:layout_editor_absoluteY="2dp">-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/Date"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="50dp"-->
+        <!--            android:layout_marginTop="325dp"-->
+        <!--            android:layout_marginEnd="153dp"-->
+        <!--            android:layout_marginBottom="620dp"-->
+        <!--            android:ems="10"-->
+        <!--            android:hint="Date"-->
+        <!--            android:inputType="text"-->
+        <!--            android:textSize="20sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+        <EditText
+            android:id="@+id/expenseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="50dp"
+            android:autofillHints="Expense Name"
+            android:ems="10"
+            android:hint="@string/expense_name"
+            android:inputType="text"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/Amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:autofillHints="Amount"
+            android:ems="10"
+            android:hint="@string/amount"
+            android:inputType="text"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/expenseName"
+            app:layout_constraintTop_toBottomOf="@+id/expenseName" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="237dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/add_expense"
+            app:layout_constraintStart_toStartOf="@+id/Amount"
+            app:layout_constraintTop_toBottomOf="@+id/Amount" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/expenseList"
+            android:layout_width="396dp"
+            android:layout_height="490dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
+
+
+        <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Android_Development</string>
     <string name="enter_your_name">Enter your name:</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="amount">Amount</string>
+    <string name="expense_name">Expense Name</string>
 </resources>

@@ -10,33 +10,59 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var name: EditText
-    private lateinit var show: TextView
-    private lateinit var button: Button
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        name = findViewById(R.id.editTextText)
-        show = findViewById(R.id.textView4)
-        button = findViewById(R.id.calc_button)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        val recyclerView : RecyclerView = findViewById<RecyclerView>(R.id.expenseList)
+
+        val expName = findViewById<TextView>(R.id.expenseName)
+        val amount = findViewById<EditText>(R.id.Amount)
+        val addButton = findViewById<Button>(R.id.button)
+
+        val expenseList : MutableList<RecyclerViewItem> = ArrayList()
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val adapter = RecyclerViewAdapter(expenseList)
+        recyclerView.adapter = adapter
+
+        addButton.setOnClickListener(){
+            val name = expName.text.toString().trim()
+            val amount1 = amount.text.toString().trim()
+
+//            if(name.isEmpty()){
+//                val newName = RecyclerViewItem(name)
+//                expenseList.add(newName)
+//                adapter.notifyItemInserted(expenseList.size -1)
+////                expName.text.clear()
+//                if (amount1.isEmpty()){
+//                    val newAmount = RecyclerViewItem(amount1)
+//                    expenseList.add(newAmount)
+//                    adapter.notifyItemInserted(expenseList.size -1)
+//                    amount.text.clear()
+//                }
+//            }
+
+            if (name.isNotEmpty() && amount1.isNotEmpty()){
+                val newExpense = RecyclerViewItem(name,amount1)
+                expenseList.add(newExpense)
+                adapter.notifyItemInserted(expenseList.size -1)
+//                expName.text.clear()
+                amount.text.clear()
+            }
         }
-        button.setOnClickListener {
-            val typedname = name.text.toString().trim()
-            show.setText("Hello "+typedname)
 
 
-
-        }
 
     }
 
 }
+
+

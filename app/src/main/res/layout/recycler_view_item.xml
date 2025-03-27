@@ -32,9 +32,23 @@
         android:id="@+id/delete_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="20dp"
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="@+id/amountText"
+        app:layout_constraintStart_toEndOf="@+id/amountText"
+        app:layout_constraintTop_toTopOf="@+id/amountText"
+        app:layout_constraintVertical_bias="0.857" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="22dp"
+        android:text="Details"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/amountText" />
+        app:layout_constraintStart_toEndOf="@+id/delete_btn"
+        app:layout_constraintTop_toTopOf="@+id/delete_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

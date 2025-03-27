@@ -2,6 +2,7 @@ package com.example.android_development
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -62,6 +63,29 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    override fun onStart() {
+        super.onStart()
+        Log.d("Lifecycle","onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Lifecycle", "onResume called")
+    }
+    override fun onPause() {
+        super.onPause()
+        Log.d("Lifecycle", "onPause called")
+    }
+    override fun onStop() {
+        super.onStop()
+        Log.d("Lifecycle", "onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Lifecycle", "onDestroy called")
+    }
+
 
 }
 

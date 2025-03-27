@@ -2,7 +2,7 @@ package com.example.android_development
 
 import android.widget.TextView
 
-open class RecyclerViewItem( val expense: String? = null,val amount: String?=null) {
+open class RecyclerViewItem( var expense: String? = null,var amount: String?=null) {
 
 
 

@@ -1,6 +1,8 @@
 package com.example.android_development
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -21,12 +23,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        Log.d("LifeCycle", "onCreate was asked to come")
 
         val recyclerView : RecyclerView = findViewById<RecyclerView>(R.id.expenseList)
-
         val expName = findViewById<TextView>(R.id.expenseName)
         val amount = findViewById<EditText>(R.id.Amount)
         val addButton = findViewById<Button>(R.id.button)
+        val financeBtn = findViewById<Button>(R.id.finance_btn)
 
         val expenseList : MutableList<RecyclerViewItem> = ArrayList()
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -58,6 +61,12 @@ class MainActivity : AppCompatActivity() {
 //                expName.text.clear()
                 amount.text.clear()
             }
+        }
+
+        financeBtn.setOnClickListener(){
+            var url = "https://www.cibc.com/en/business/advice-centre/articles/financial-tips.html"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
         }
 
 

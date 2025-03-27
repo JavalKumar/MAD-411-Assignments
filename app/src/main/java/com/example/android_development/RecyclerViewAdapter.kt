@@ -1,5 +1,6 @@
 package com.example.android_development
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ class RecyclerViewAdapter (private val dataset: MutableList<RecyclerViewItem>): 
         val expenseName : TextView = itemView.findViewById(R.id.expenseText)
         val amount : TextView = itemView.findViewById(R.id.amountText)
         val deleteBtn : Button = itemView.findViewById(R.id.delete_btn)
-
+        val detailBtn : Button = itemView.findViewById(R.id.detailBtn)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,6 +30,13 @@ class RecyclerViewAdapter (private val dataset: MutableList<RecyclerViewItem>): 
         holder.deleteBtn.setOnClickListener {
             deleteExpense(position)
         }
+        holder.detailBtn.setOnClickListener(){
+            val context = holder.itemView.context
+            val intent = Intent(context,ExpenseDetailsActivity::class.java)
+            intent.putExtra("Expense Name", expense.expense)
+            intent.putExtra("Expense Amount", expense.amount)
+            context.startActivity(intent)
+        }
     }
     private fun deleteExpense(position: Int){
         dataset.removeAt(position)
@@ -36,6 +44,8 @@ class RecyclerViewAdapter (private val dataset: MutableList<RecyclerViewItem>): 
         notifyItemRangeChanged(position, dataset.size)
 
     }
+
+
 
     override fun getItemCount() = dataset.size
 

@@ -4,4 +4,10 @@
     <string name="add_expense">Add Expense</string>
     <string name="amount">Amount</string>
     <string name="expense_name">Expense Name</string>
+    <string name="expense">Expense</string>
+    <string name="amount1">Amount</string>
+    <string name="delete">Delete</string>
+    <string name="details">Details</string>
+    <string name="expense_name1">Expense Name</string>
+    <string name="expense_amount">Expense Amount</string>
 </resources>

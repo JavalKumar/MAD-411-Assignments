@@ -24,6 +24,12 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         Log.d("LifeCycle", "onCreate was asked to come")
+        val header = Header()
+        val footer = Footer()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView,header)
+            .replace(R.id.footerContainer,footer)
+            .commit()
 
         val recyclerView : RecyclerView = findViewById<RecyclerView>(R.id.expenseList)
         val expName = findViewById<TextView>(R.id.expenseName)

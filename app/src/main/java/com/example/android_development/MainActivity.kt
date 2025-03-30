@@ -1,6 +1,7 @@
 package com.example.android_development
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -15,9 +16,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
+import com.google.gson.Gson
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
+    private val filename = "RecyclerViewItem.json"
+    private val list = mutableListOf<RecyclerViewItem>()
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +45,15 @@ class MainActivity : AppCompatActivity() {
         val addButton = findViewById<Button>(R.id.button)
         val financeBtn = findViewById<Button>(R.id.finance_btn)
 
-        val expenseList : MutableList<RecyclerViewItem> = ArrayList()
+        val expenseList : MutableList<RecyclerViewItem> = loadTasksFromFile(this)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val adapter = RecyclerViewAdapter(expenseList)
         recyclerView.adapter = adapter
+//        expenseList.addAll(loadTasksFromFile(this))
+        adapter.notifyDataSetChanged()
+//        saveTasksToFile(this, list)
+//        loadTasksFromFile(this)
 
         addButton.setOnClickListener(){
             val name = expName.text.toString().trim()
@@ -66,6 +78,8 @@ class MainActivity : AppCompatActivity() {
                 adapter.notifyItemInserted(expenseList.size -1)
 //                expName.text.clear()
                 amount.text.clear()
+                saveTasksToFile(this, expenseList)
+
             }
         }
 
@@ -77,6 +91,40 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+    }
+
+
+    private fun saveTasksToFile(context: Context, taskList: List<RecyclerViewItem>){
+        try {
+            val json = Gson().toJson(taskList)
+            context.openFileOutput(filename, Context.MODE_PRIVATE).use{output -> output.write(json.toByteArray())
+            }
+            Log.d("FileStorage","Task saved successfully")
+        }catch (e: IOException){
+            Log.e("FileStorage","Error saving tasks: ${e.message}")
+        }
+    }
+
+
+    private fun loadTasksFromFile(context: Context): MutableList<RecyclerViewItem> {
+        val taskList: MutableList<RecyclerViewItem> = mutableListOf()
+        try {
+            val file = File(context.filesDir, filename)
+            if (!file.exists()) return taskList
+
+            val json = file.readText()
+            val type = object : TypeToken<List<RecyclerViewItem>>() {}.type
+            val loadedTasks: List<RecyclerViewItem> = Gson().fromJson(json, type)
+            taskList.addAll(loadedTasks)
+
+            Log.d("FileStorage", "Tasks loaded successfully")
+        } catch (e: FileNotFoundException) {
+            Log.e("FileStorage", "File not found: ${e.message}")
+        } catch (e: IOException) {
+            Log.e("FileStorage", "Error reading file: ${e.message}")
+        }
+        return taskList
     }
     override fun onStart() {
         super.onStart()
@@ -100,6 +148,9 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Log.d("Lifecycle", "onDestroy called")
     }
+
+
+
 
 
 }
